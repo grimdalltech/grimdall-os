@@ -75,9 +75,17 @@ const inspection = inspectShellCommand("rm -rf /");
 ## Development
 
 ```bash
-npm test        # runs the lib test suite
+npm test        # runs the lib, CLI, and Node SDK test suites
 npm run build   # syntax-checks the engine and SDK sources
 ```
+
+## Examples
+
+- `examples/block-rm-rf.js` — block destructive commands like `rm -rf /` with the policy engine.
+- `examples/mask-secrets.js` — mask API keys, tokens, emails, and phones before they reach a policy endpoint.
+- `examples/verify-audit.js` — verify (and detect tampering in) a tamper-evident audit chain.
+- `examples/node-sdk.js` — guard a tool with `createGrimdall()`.
+- `examples/cli-demo.md` — `npx grimdall init` walkthrough.
 
 ## License
 
