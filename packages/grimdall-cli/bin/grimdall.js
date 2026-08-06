@@ -153,7 +153,7 @@ async function init() {
     2
   )}\n`;
 
-  const nodeWrapper = `import { createGrimdall } from "@grimdall/node";
+  const nodeWrapper = `import { createGrimdall } from "grimdall-node";
 
 const grimdall = createGrimdall();
 
@@ -305,7 +305,7 @@ Use the examples in \`grimdall-examples/\` as the starting point for your stack.
 For Node:
 
 \`\`\`bash
-npm install @grimdall/node
+npm install grimdall-node
 \`\`\`
 
 For Python:

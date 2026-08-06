@@ -1,7 +1,7 @@
 // Node SDK example: guard a dangerous tool with Grimdall.
 //
 // Run with:  GRIMDALL_ENDPOINT=https://your-endpoint/api/execute node examples/node-sdk.js
-import { createGrimdall } from "@grimdall/node";
+import { createGrimdall } from "grimdall-node";
 
 const grimdall = createGrimdall({
   endpoint: process.env.GRIMDALL_ENDPOINT,

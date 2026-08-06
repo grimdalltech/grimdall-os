@@ -1,5 +1,5 @@
 {
-  "name": "@grimdall/node",
+  "name": "grimdall-node",
   "version": "0.3.0",
   "description": "Node SDK for checking AI agent tool calls with Grimdall.",
   "type": "module",
@@ -11,12 +11,33 @@
       "default": "./src/index.js"
     }
   },
+  "files": [
+    "src/index.js",
+    "src/index.d.ts"
+  ],
   "keywords": [
     "ai",
     "agents",
     "guardrails",
     "security",
-    "grimdall"
+    "grimdall",
+    "claude-code",
+    "cursor",
+    "codex",
+    "policy-enforcement",
+    "audit-trail"
   ],
-  "license": "Apache-2.0"
+  "homepage": "https://grimdall.site",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/grimdalltech/grimdall-os.git",
+    "directory": "packages/grimdall-node"
+  },
+  "bugs": {
+    "url": "https://github.com/grimdalltech/grimdall-os/issues"
+  },
+  "license": "Apache-2.0",
+  "engines": {
+    "node": ">=18"
+  }
 }

@@ -8,7 +8,7 @@ All notable changes to this project are documented in this file.
 
 - Initial open-source release under Apache-2.0.
 - `@grimdall/cli` (`npx grimdall init`) with Node, Python, LangGraph, and Claude Code wrapper generation.
-- `@grimdall/node` Node SDK with `createGrimdall()`, `guardTool()`, and sensitive-argument redaction.
+- `grimdall-node` Node SDK with `createGrimdall()`, `guardTool()`, and sensitive-argument redaction.
 - `grimdall` Python SDK with `Grimdall`, `guard_tool()`, and sensitive-argument redaction.
 - Local policy engine (`lib/`): policy evaluation, allowlists, prompt-injection detection, remediation suggestions, shell-command inspection, and tamper-evident audit-chain verification.
 
