@@ -26,6 +26,7 @@
   <p><em>Watch it block destructive commands in 10 seconds — no setup required.</em></p>
 </div>
 
+
 ## What is Grimdall?
 
 Pointing an AI agent at your codebase without runtime security is like giving a toddler a chainsaw. **Grimdall is the runtime security layer** that stops agents from:
