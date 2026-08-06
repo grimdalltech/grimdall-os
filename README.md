@@ -26,6 +26,7 @@
   <!-- <img src="assets/demo.gif" alt="Grimdall demo blocking rm -rf /"> -->
   <p><em>Watch it block destructive commands in 10 seconds — no setup required.</em></p>
 </div>
+![Uploading carbon.png…]()
 
 ## What is Grimdall?
 
