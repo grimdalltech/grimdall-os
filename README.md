@@ -23,7 +23,6 @@
 
 <div align="center">
   <img src="assets/terminal.png" alt="Grimdall blocking a destructive command" width="800">
-  <p><em>Watch it block destructive commands in 10 seconds — no setup required.</em></p>
 </div>
 
 
