@@ -1,0 +1,44 @@
+{
+  "apiKey": "grimdall_sk_YOUR_KEY_HERE",
+  "endpoint": "",
+  "mode": "audit",
+  "allowlist": [],
+  "policies": [
+    {
+      "tool": "github_delete_repo",
+      "condition": "block_always",
+      "action": "block_and_alert",
+      "message": "Repository deletion is globally blocked."
+    },
+    {
+      "tool": "shell_execute",
+      "condition": "arg_contains",
+      "field": "command",
+      "keywords": ["rm -rf", "chmod 777", "mkfs"],
+      "action": "block_and_alert",
+      "message": "Destructive shell command detected."
+    },
+    {
+      "tool": "database_execute",
+      "condition": "arg_contains",
+      "field": "query",
+      "keywords": ["DROP TABLE", "TRUNCATE", "DELETE FROM"],
+      "action": "block_and_alert",
+      "message": "Destructive database operation blocked."
+    },
+    {
+      "tool": "stripe_create_refund",
+      "condition": "arg_less_than",
+      "field": "amount",
+      "threshold": 5000,
+      "action": "block_and_alert",
+      "message": "Refund exceeds $50.00 policy limit."
+    },
+    {
+      "tool": "deploy_production",
+      "condition": "require_review",
+      "action": "require_review",
+      "message": "Production deploys require human approval."
+    }
+  ]
+}

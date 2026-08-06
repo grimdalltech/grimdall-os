@@ -1,0 +1,20 @@
+{
+  "name": "grimdall-monorepo",
+  "version": "0.3.0",
+  "private": true,
+  "description": "Open-source runtime security layer for AI agents: policy enforcement, secret masking, injection detection, and a tamper-evident audit trail.",
+  "type": "module",
+  "license": "Apache-2.0",
+  "engines": {
+    "node": ">=18"
+  },
+  "workspaces": [
+    "packages/*"
+  ],
+  "scripts": {
+    "test": "node --test \"lib/tests/**/*.test.js\"",
+    "build": "node --check lib/policy-engine.js && node --check lib/policy.js && node --check lib/prompt-injection-detector.js && node --check lib/remediation-engine.js && node --check lib/allowlist.js && node --check lib/grimdall-config.js && node --check lib/verify-audit-chain.js && node --check packages/grimdall-cli/bin/grimdall.js && node --check packages/grimdall-node/src/index.js",
+    "lint": "echo \"Linting is a WIP\" && exit 0",
+    "format": "echo \"Prettier is a WIP\" && exit 0"
+  }
+}

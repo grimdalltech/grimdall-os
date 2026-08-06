@@ -1,0 +1,22 @@
+{
+  "name": "@grimdall/node",
+  "version": "0.3.0",
+  "description": "Node SDK for checking AI agent tool calls with Grimdall.",
+  "type": "module",
+  "main": "./src/index.js",
+  "types": "./src/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./src/index.d.ts",
+      "default": "./src/index.js"
+    }
+  },
+  "keywords": [
+    "ai",
+    "agents",
+    "guardrails",
+    "security",
+    "grimdall"
+  ],
+  "license": "Apache-2.0"
+}

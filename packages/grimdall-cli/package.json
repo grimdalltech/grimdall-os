@@ -1,0 +1,17 @@
+{
+  "name": "@grimdall/cli",
+  "version": "0.3.0",
+  "description": "One-command setup for Grimdall agent protection.",
+  "type": "module",
+  "bin": {
+    "grimdall": "bin/grimdall.js"
+  },
+  "keywords": [
+    "ai",
+    "agents",
+    "cli",
+    "guardrails",
+    "grimdall"
+  ],
+  "license": "Apache-2.0"
+}
