@@ -12,9 +12,7 @@
 <p align="center">
   <a href="https://grimdall.site">Website</a> •
   <a href="https://grimdall.site/docs">Documentation</a> •
-  <a href="https://grimdall.site/blog">Blog</a> •
-  <a href="https://github.com/grimdalltech/grimdall-os/discussions">Community</a> •
-  <a href="https://twitter.com/grimdall">Twitter</a>
+  <a href="https://grimdall.site/blog">Blog</a>
 </p>
 
 <p align="center">
@@ -49,7 +47,7 @@ It sits between your agents (Claude Code, Cursor, Codex) and their tools, enforc
 - **Generate safer alternatives** — suggest `rm -rf ./build` instead of `rm -rf /`.
 - **Tamper-evident audit trail** — SHA-256 hash chain, verifiable, exportable.
 
-Built in response to real attacks: [Mini Shai-Hulud](https://msftsecintel.com/2026/08/05/mini-shai-hulud) npm supply chain attacks, [Kiro CVE-2026-10591](https://thehackernews.com/2026/07/aws-kiro-flaw-let-poisoned-web-page.html), and the [Hugging Face agent breach](https://thehackernews.com/2026/07/worlds-largest-ai-model-repository.html).
+Built in response to real attacks: [Mini Shai-Hulud](https://thehackernews.com/2026/05/mini-shai-hulud-worm-compromises.html) npm supply chain attacks, [Kiro CVE-2026-10591](https://thehackernews.com/2026/07/aws-kiro-flaw-let-poisoned-web-page.html), and the [Hugging Face agent breach](https://thehackernews.com/2026/07/worlds-largest-ai-model-repository.html).
 
 ## Getting started
 
