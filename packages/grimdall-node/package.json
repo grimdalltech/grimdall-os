@@ -1,6 +1,6 @@
 {
   "name": "grimdall-node",
-  "version": "0.3.0",
+  "version": "0.3.1",
   "description": "Node SDK for checking AI agent tool calls with Grimdall.",
   "type": "module",
   "main": "./src/index.js",
