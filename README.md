@@ -48,6 +48,22 @@ It sits between your agents (Claude Code, Cursor, Codex) and their tools, enforc
 
 Built in response to real attacks: [Mini Shai-Hulud](https://thehackernews.com/2026/05/mini-shai-hulud-worm-compromises.html) npm supply chain attacks, [Kiro CVE-2026-10591](https://thehackernews.com/2026/07/aws-kiro-flaw-let-poisoned-web-page.html), and the [Hugging Face agent breach](https://thehackernews.com/2026/07/worlds-largest-ai-model-repository.html).
 
+## Compatible with
+
+Grimdall works with **any AI agent that uses tool/function calling**, including:
+
+- **Claude Code** (Anthropic)
+- **Cursor** (cursor.sh)
+- **Codex** (OpenAI)
+- **LangChain** agents
+- **CrewAI**
+- **Hugging Face** Agents
+- **Hermes**
+- **OpenClaw**
+- Custom Python agents
+
+No configuration needed — just run `grimdall init --hooks` and it auto-detects your agent.
+
 ## Getting started
 
 ### Quickstart (10 seconds)
