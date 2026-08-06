@@ -22,8 +22,7 @@
 </p>
 
 <div align="center">
-  <!-- TODO: Replace with actual demo GIF (grimdall demo blocking rm -rf /) -->
-  <!-- <img src="assets/demo.gif" alt="Grimdall demo blocking rm -rf /"> -->
+  <img src="assets/terminal.png" alt="Grimdall blocking a destructive command" width="800">
   <p><em>Watch it block destructive commands in 10 seconds — no setup required.</em></p>
 </div>
 
