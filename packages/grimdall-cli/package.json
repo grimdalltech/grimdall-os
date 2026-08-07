@@ -1,13 +1,14 @@
 {
   "name": "grimdall",
-  "version": "0.3.1",
+  "version": "0.3.2",
   "description": "Runtime security for AI coding agents. Stop rogue agents from deleting production.",
   "type": "module",
   "bin": {
     "grimdall": "bin/grimdall.js"
   },
   "files": [
-    "bin/grimdall.js"
+    "bin/grimdall.js",
+    "hooks/"
   ],
   "keywords": [
     "ai",
