@@ -4,7 +4,7 @@ alt="Grimdall" width="75%" />
 
 
 
-# Grimdall
+
 
 **Runtime security for AI agents.**
 Intercept every tool call. Enforce policy. Prove the audit.
