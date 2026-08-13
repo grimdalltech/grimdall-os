@@ -12,7 +12,7 @@
     "packages/*"
   ],
   "scripts": {
-    "test": "node --test \"lib/tests/**/*.test.js\" \"packages/grimdall-cli/test/**/*.test.js\" \"packages/grimdall-node/src/**/*.test.js\"",
+    "test": "node --test lib/tests/*.test.js packages/grimdall-cli/test/*.test.js packages/grimdall-node/src/*.test.js",
     "build": "node --check lib/policy-engine.js && node --check lib/policy.js && node --check lib/prompt-injection-detector.js && node --check lib/remediation-engine.js && node --check lib/allowlist.js && node --check lib/grimdall-config.js && node --check lib/verify-audit-chain.js && node --check packages/grimdall-cli/bin/grimdall.js && node --check packages/grimdall-node/src/index.js",
     "lint": "echo \"Linting is a WIP\" && exit 0",
     "format": "echo \"Prettier is a WIP\" && exit 0"

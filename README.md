@@ -1,29 +1,42 @@
-<div align="center">
-  <img src="assets/logo.png" width="120" alt="Grimdall">
-  <h1>Grimdall</h1>
-  <p>Runtime security for AI coding agents</p>
-</div>
-
 <p align="center">
-  <strong>Stop rogue AI agents from deleting production.</strong><br>
-  <em>Grimdall sits between your AI agents and their tools. If an agent tries to run destructive shell commands, drop database tables, or modify production configs, Grimdall blocks it instantly and alerts your team on Slack.</em>
+  <picture>
+    <source media="(prefers-color-scheme: dark)" srcset="assets/logo.png">
+    <img src="assets/logo.png" alt="Grimdall" width="720">
+  </picture>
 </p>
 
 <p align="center">
-  <a href="https://grimdall.site">Website</a> •
-  <a href="https://grimdall.site/docs">Documentation</a> •
-  <a href="https://grimdall.site/blog">Blog</a>
+  <strong>stop rogue AI agents before they delete production</strong>
 </p>
 
 <p align="center">
-  <a href="https://www.npmjs.com/package/grimdall"><img src="https://img.shields.io/npm/v/grimdall?color=000000&label=npm" alt="npm version"></a>
+  Runtime security layer for AI coding agents.<br>
+  <strong>Block destructive commands. Mask secrets. Detect prompt injections.</strong><br>
+  <em>Sits between your agents (Claude Code, Cursor, Codex) and their tools.</em>
+</p>
+
+<p align="center">
+  <a href="https://trendshift.io/repositories/25391" target="_blank" rel="noopener noreferrer"><img src="https://trendshift.io/api/badge/repositories/25391" alt="grimdalltech%2Fgrimdall-os | Trendshift" width="250" height="55"/></a>
+</p>
+
+<p align="center">
+  <a href="https://github.com/grimdalltech/grimdall-os/stargazers"><img src="https://img.shields.io/github/stars/grimdalltech/grimdall-os?style=flat&color=yellow" alt="Stars"></a>
+  <a href="https://www.npmjs.com/package/grimdall"><img src="https://img.shields.io/npm/v/grimdall?color=red&label=npm" alt="npm version"></a>
   <a href="https://github.com/grimdalltech/grimdall-os/blob/main/LICENSE"><img src="https://img.shields.io/badge/License-Apache%202.0-blue.svg" alt="License"></a>
-  <a href="https://github.com/grimdalltech/grimdall-os/stargazers"><img src="https://img.shields.io/github/stars/grimdalltech/grimdall-os?style=social" alt="stars"></a>
+  <a href="https://discord.gg/grimdall"><img src="https://img.shields.io/discord/123456789?color=7289da&label=discord&logo=discord" alt="Discord"></a>
 </p>
 
-<div align="center">
-  <img src="assets/terminal.png" alt="Grimdall blocking a destructive command" width="800">
-</div>
+<p align="center">
+  <a href="#what-is-grimdall">What is it</a> ·
+  <a href="#what-it-does">What it does</a> ·
+  <a href="#compatible-with">Compatible agents</a> ·
+  <a href="#getting-started">Getting started</a> ·
+  <a href="#documentation">Docs</a> ·
+  <a href="#community-and-contributing">Community</a> ·
+  <a href="#license">License</a>
+</p>
+
+---
 
 
 ## What is Grimdall?
