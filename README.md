@@ -6,8 +6,8 @@ alt="Grimdall" width="75%" />
 
 
 
-**Runtime security for AI agents.**
-Intercept every tool call. Enforce policy. Prove the audit.
+**Stop AI hallucinations from nuking production.**
+Grimdall is the blast shield between your agents and their tools. If an agent tries to run DROP TABLE, rm -rf, or force-push to main, Grimdall blocks it instantly and pings your Slack.
 
 [Website](https://grimdall.site) · [Docs](https://grimdall.site/docs) · [PyPI](https://pypi.org/project/grimdall/) · [npm](https://www.npmjs.com/package/grimdall) · [Security](SECURITY.md) · [Contributing](CONTRIBUTING.md)
 
