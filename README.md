@@ -1,6 +1,6 @@
 <div align="center">
 <img src="https://sc02.alicdn.com/kf/Af2402ba971d140b5b55040bdad9b9ccbj.png" 
-alt="Grimdall" width="100%" />
+alt="Grimdall" width="75%" />
 
 
 
