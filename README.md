@@ -1,6 +1,4 @@
-<p align="center">
-  <img src="assets/logo-banner.png" alt="Grimdall" width="100%">
-</p>
+![Grimdall](assets/logo-banner.png)
 
 Runtime security for AI agents. Stops the tool calls that would delete your repo, nuke your shell, or leak your keys, then writes a tamper-evident, SHA-256 hash-chained audit trail you can verify with one command. Runs fully local: no signup, no telemetry, no API key.
 
