@@ -1,6 +1,6 @@
 {
   "name": "grimdall",
-  "version": "0.2.1",
+  "version": "0.3.3",
   "description": "Command line tool for Grimdall: initialize configs and verify the tamper-evident audit trail.",
   "license": "MIT",
   "type": "commonjs",
@@ -36,6 +36,7 @@
   "scripts": {
     "build": "tsc -p tsconfig.json",
     "lint": "eslint src bin",
+    "prepack": "npm run build",
     "prepublishOnly": "npm run build"
   },
   "dependencies": {

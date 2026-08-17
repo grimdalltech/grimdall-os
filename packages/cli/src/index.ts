@@ -15,7 +15,7 @@ import {
 } from './hooks.js';
 import { createGrimdall } from 'grimdall-node';
 
-const VERSION = '0.2.1';
+const VERSION = (require('../package.json') as { version: string }).version;
 const CONFIG_FILE = join('.grimdall', 'config.json');
 const DOT_GRIMDALL_DIR = '.grimdall';
 const WORKSPACES_DIR = 'workspaces';
