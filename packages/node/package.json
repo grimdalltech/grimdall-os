@@ -1,0 +1,42 @@
+{
+  "name": "grimdall-node",
+  "version": "0.2.0",
+  "description": "Grimdall SDK for Node.js and TypeScript applications: wrap AI tool calls with runtime security enforcement.",
+  "license": "MIT",
+  "type": "commonjs",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "files": [
+    "dist"
+  ],
+  "engines": {
+    "node": ">=18"
+  },
+  "keywords": [
+    "ai-security",
+    "agent",
+    "agentic-ai",
+    "guardrails",
+    "sdk",
+    "tool-call",
+    "policy-enforcement",
+    "secret-masking"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/grimdalltech/grimdall-os.git"
+  },
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "lint": "eslint src",
+    "prepublishOnly": "npm run build"
+  },
+  "dependencies": {
+    "grimdall-core": "^0.2.0",
+    "axios": "^1.11.0",
+    "express": "^5.1.0"
+  },
+  "devDependencies": {
+    "@types/express": "^5.0.0"
+  }
+}

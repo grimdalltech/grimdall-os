@@ -1,0 +1,46 @@
+{
+  "name": "grimdall",
+  "version": "0.2.1",
+  "description": "Command line tool for Grimdall: initialize configs and verify the tamper-evident audit trail.",
+  "license": "MIT",
+  "type": "commonjs",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "bin": {
+    "grimdall": "bin/grimdall.js"
+  },
+  "files": [
+    "dist",
+    "bin",
+    "hooks"
+  ],
+  "engines": {
+    "node": ">=18"
+  },
+  "keywords": [
+    "ai-security",
+    "agent",
+    "agentic-ai",
+    "cli",
+    "guardrails",
+    "claude-code",
+    "cursor",
+    "codex",
+    "policy-enforcement",
+    "audit-trail"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/grimdalltech/grimdall-os.git"
+  },
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "lint": "eslint src bin",
+    "prepublishOnly": "npm run build"
+  },
+  "dependencies": {
+    "grimdall-core": "^0.2.0",
+    "grimdall-node": "^0.2.0",
+    "pdfkit": "^0.17.2"
+  }
+}

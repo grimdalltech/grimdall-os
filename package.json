@@ -1,20 +1,30 @@
 {
-  "name": "grimdall-monorepo",
-  "version": "0.3.0",
+  "name": "grimdall",
+  "version": "0.2.1",
   "private": true,
   "description": "Open-source runtime security layer for AI agents: policy enforcement, secret masking, injection detection, and a tamper-evident audit trail.",
-  "type": "module",
-  "license": "Apache-2.0",
-  "engines": {
-    "node": ">=18"
-  },
+  "license": "MIT",
   "workspaces": [
     "packages/*"
   ],
+  "engines": {
+    "node": ">=18"
+  },
   "scripts": {
-    "test": "node --test \"lib/tests/**/*.test.js\" \"packages/grimdall-cli/test/**/*.test.js\" \"packages/grimdall-node/src/**/*.test.js\"",
-    "build": "node --check lib/policy-engine.js && node --check lib/policy.js && node --check lib/prompt-injection-detector.js && node --check lib/remediation-engine.js && node --check lib/allowlist.js && node --check lib/grimdall-config.js && node --check lib/verify-audit-chain.js && node --check packages/grimdall-cli/bin/grimdall.js && node --check packages/grimdall-node/src/index.js",
-    "lint": "echo \"Linting is a WIP\" && exit 0",
-    "format": "echo \"Prettier is a WIP\" && exit 0"
+    "build": "tsc -b",
+    "test": "vitest run",
+    "lint": "eslint . && prettier --check .",
+    "format": "prettier --write ."
+  },
+  "devDependencies": {
+    "@eslint/js": "^9.0.0",
+    "@types/node": "^24.0.0",
+    "eslint": "^9.0.0",
+    "eslint-config-prettier": "^10.0.0",
+    "globals": "^16.0.0",
+    "prettier": "^3.3.0",
+    "typescript": "^5.8.0",
+    "typescript-eslint": "^8.0.0",
+    "vitest": "^3.0.0"
   }
 }

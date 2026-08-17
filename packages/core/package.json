@@ -1,0 +1,41 @@
+{
+  "name": "grimdall-core",
+  "version": "0.2.0",
+  "description": "Core runtime security engine for Grimdall: policy enforcement, secret masking, injection detection, and a tamper-evident audit trail.",
+  "license": "MIT",
+  "type": "commonjs",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "files": [
+    "dist"
+  ],
+  "engines": {
+    "node": ">=18"
+  },
+  "keywords": [
+    "ai-security",
+    "llm-security",
+    "agent",
+    "agentic-ai",
+    "policy-enforcement",
+    "guardrails",
+    "secret-masking",
+    "audit-trail",
+    "prompt-injection",
+    "claude-code",
+    "mcp"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/grimdalltech/grimdall-os.git"
+  },
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "lint": "eslint src",
+    "prepublishOnly": "npm run build"
+  },
+  "dependencies": {
+    "@slack/web-api": "^7.19.0",
+    "axios": "^1.11.0"
+  }
+}

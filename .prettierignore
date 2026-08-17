@@ -1,0 +1,9 @@
+node_modules/
+dist/
+coverage/
+packages/python/
+grimdall-audit.json
+grimdall.config.json
+workspaces/**/audit.json
+workspaces/**/pending-reviews.json
+workspaces/**/reports/

@@ -1,39 +1,58 @@
-# Contributing to Grimdall
+# Contributing
 
-Thanks for helping improve Grimdall.
+Thanks for showing up. Grimdall is a runtime security layer for AI agents: policy enforcement, secret masking, injection detection, and a tamper-evident audit trail. It is a monorepo with four packages plus the marketing site.
 
-## Before you open a PR
+## Repository map
 
-- Open an issue first for non-trivial changes.
-- Keep PRs small and focused.
-- Explain the user impact clearly.
-- Add tests when behavior changes.
+- `packages/core` (`grimdall-core`) policy engine, masking, injection detection, audit trail
+- `packages/node` (`grimdall-node`) Node.js and TypeScript SDK
+- `packages/cli` (`grimdall`) the command line tool
+- `packages/python` (`grimdall`) the Python SDK with framework adapters
+- `examples/` runnable examples (`node-basic`, `python-basic`, `cli-demo`, and more)
+- `docs/` design and integration docs
+- `policies/` default policy documentation
 
-## What gets extra review
+## Setup
 
-- Tool execution flow
-- Policy evaluation logic
-- API key and auth handling
-- Rate limiting and abuse protection
-- Anything that affects security boundaries
-
-## Branch workflow
-
-1. Fork the repository.
-2. Create a branch: `git checkout -b yourname/description-of-change`
-3. Make your changes and add tests.
-4. Run `npm test` locally.
-5. Push and open a pull request against `main`.
-
-## Development setup
+Requires Node.js 18+ and Python 3.9+.
 
 ```bash
-npm install
-npm test
+npm ci
 npm run build
 ```
 
-## Licensing
+## Tests
 
-By contributing, you agree that your contributions are licensed under the
-[Apache-2.0](LICENSE) license.
+The full suite must be green before a PR.
+
+```bash
+npm test          # vitest, node and typescript
+npm run lint      # eslint + prettier
+python -m pip install -e ./packages/python
+python -m pip install pytest
+python -m pytest packages/python/tests
+```
+
+## Making changes
+
+- Small, descriptive commits. One logical change per commit.
+- Match the style of the file you touch. TypeScript packages use the shared `tsconfig.base.json` and ESLint config.
+- Keep the CLI local-only: no signup, no API key, no telemetry, no network calls in the core path.
+- Never document a command that does not exist. If it is not shipped, write "coming soon" and move on.
+- Public copy stays plain: no em dashes, no ellipses, no fake badges.
+
+## PR checklist
+
+- [ ] `npm run build` passes
+- [ ] `npm test` passes
+- [ ] `python -m pytest packages/python/tests` passes
+- [ ] New behavior is covered by a test in the package it touches
+- [ ] README and `docs/` updated when commands or behavior change
+
+## Questions
+
+Open an issue or start a discussion. Keep it focused: one bug or one feature per thread.
+
+## License
+
+MIT, matching the repo.
