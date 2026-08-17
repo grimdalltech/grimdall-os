@@ -1,8 +1,7 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 400" width="1200" height="400">
   <defs>
     <style>
-      @import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@700&amp;display=swap');
-      text { font-family: 'Space Grotesk', 'Arial Black', sans-serif; }
+      text { font-family: 'Arial Black', sans-serif; }
     </style>
   </defs>
   <rect width="1200" height="400" fill="#000000"/>
