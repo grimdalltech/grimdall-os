@@ -2,7 +2,7 @@
   "name": "grimdall",
   "version": "0.3.3",
   "description": "Command line tool for Grimdall: initialize configs and verify the tamper-evident audit trail.",
-  "license": "MIT",
+  "license": "Apache-2.0",
   "type": "commonjs",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",

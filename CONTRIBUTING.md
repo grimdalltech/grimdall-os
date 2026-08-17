@@ -55,4 +55,4 @@ Open an issue or start a discussion. Keep it focused: one bug or one feature per
 
 ## License
 
-MIT, matching the repo.
+Apache-2.0, matching the repo.

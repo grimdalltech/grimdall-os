@@ -2,7 +2,7 @@
   "name": "grimdall-node",
   "version": "0.2.0",
   "description": "Grimdall SDK for Node.js and TypeScript applications: wrap AI tool calls with runtime security enforcement.",
-  "license": "MIT",
+  "license": "Apache-2.0",
   "type": "commonjs",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",

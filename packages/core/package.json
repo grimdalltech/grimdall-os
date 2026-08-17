@@ -2,7 +2,7 @@
   "name": "grimdall-core",
   "version": "0.2.0",
   "description": "Core runtime security engine for Grimdall: policy enforcement, secret masking, injection detection, and a tamper-evident audit trail.",
-  "license": "MIT",
+  "license": "Apache-2.0",
   "type": "commonjs",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
