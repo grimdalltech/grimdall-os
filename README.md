@@ -103,7 +103,10 @@ Switch with the CLI (`grimdall mode audit` → learn-only, `grimdall mode enforc
 
 ## 📋 Compliance
 
-Grimdall writes a tamper-evident, hash-chained record of every tool call it evaluates — the kind of evidence trail auditors ask for. Today you can verify integrity with `grimdall audit:verify` and inspect the log with `grimdall audit:view`. Grimdall is evidence infrastructure, not a certified compliance product.
+Grimdall writes a tamper-evident, hash-chained record of every tool call it evaluates. Each entry is signed with an ed25519 key and commits to the previous hash — alter any entry and the chain breaks. You can verify integrity with grimdall audit:verify and inspect the log with grimdall audit:view.
+
+
+Grimdall is evidence infrastructure, not a certified compliance product.
 
 ## 🗺️ Roadmap
 
