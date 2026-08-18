@@ -9,6 +9,16 @@
   [![ci](https://github.com/grimdalltech/grimdall-os/actions/workflows/ci.yml/badge.svg)](https://github.com/grimdalltech/grimdall-os/actions/workflows/ci.yml)
   [![X](https://img.shields.io/badge/X-@Grimdal__Sec-000?logo=x)](https://x.com/Grimdal_Sec)
 
+<p align="center">
+  <img alt="Claude Code" src="https://img.shields.io/badge/Claude_Code-✓-22c55e?style=for-the-badge&labelColor=0B0E14" />
+  <img alt="Cursor" src="https://img.shields.io/badge/Cursor-✓-22c55e?style=for-the-badge&labelColor=0B0E14" />
+  <img alt="Codex" src="https://img.shields.io/badge/Codex-✓-22c55e?style=for-the-badge&labelColor=0B0E14" />
+  <img alt="LangChain" src="https://img.shields.io/badge/LangChain-✓-22c55e?style=for-the-badge&labelColor=0B0E14" />
+  <img alt="CrewAI" src="https://img.shields.io/badge/CrewAI-✓-22c55e?style=for-the-badge&labelColor=0B0E14" />
+  <img alt="OpenAI Agents SDK" src="https://img.shields.io/badge/OpenAI_Agents_SDK-✓-22c55e?style=for-the-badge&labelColor=0B0E14" />
+  <img alt="AutoGen" src="https://img.shields.io/badge/AutoGen-✓-22c55e?style=for-the-badge&labelColor=0B0E14" />
+</p>
+
   ![grimdall demo](assets/demo.gif)
 </div>
 
