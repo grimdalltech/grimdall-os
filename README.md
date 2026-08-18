@@ -7,6 +7,7 @@
   [![PyPI](https://img.shields.io/pypi/v/grimdall)](https://pypi.org/project/grimdall/)
   [![license](https://img.shields.io/badge/license-Apache--2.0-blue.svg)](LICENSE)
   [![ci](https://github.com/grimdalltech/grimdall-os/actions/workflows/ci.yml/badge.svg)](https://github.com/grimdalltech/grimdall-os/actions/workflows/ci.yml)
+  [![X](https://img.shields.io/badge/X-@Grimdal__Sec-000?logo=x)](https://x.com/Grimdal_Sec)
 
   ![grimdall demo](assets/demo.gif)
 </div>
@@ -44,6 +45,12 @@ from grimdall import guard
 def my_agent_function(prompt):
     # your agent logic here
 ```
+
+## 🤖 Vibe Coder?
+
+Paste this to your agent and go:
+
+> Integrate grimdall into this project by following AGENT_INTEGRATIONS.md in github.com/grimdalltech/grimdall-os
 
 ## 🧪 Try It in 30 Seconds
 
