@@ -87,6 +87,8 @@ tool call → intercept → evaluate policy → allow / block / review → hash-
 - **Human-in-the-loop Slack alerts** — blocked calls can ping a Slack webhook in real time.
 - **`grimdall demo`** — watch it block `rm -rf /` live.
 - **`grimdall audit:verify`** — one command proves the chain is intact.
+- **Audit export** — `grimdall audit export` to JSON/CSV for your SOC team.
+- **Safer-alternative suggestions** — when a command is blocked, suggest the safe version.
 
 ## 🎚️ Modes: Audit vs Enforce
 
@@ -105,8 +107,6 @@ Grimdall writes a tamper-evident, hash-chained record of every tool call it eval
 
 ## 🗺️ Roadmap
 
-- **Audit export** — `grimdall audit export` to JSON/CSV for your SOC team.
-- **Safer-alternative suggestions** — when a command is blocked, suggest the safe version.
 - **Spend guardrails** — hard budget caps per agent (alert → review → block on token/cost spend).
 - **Trust layer** — Ed25519 agent identity and signed intent capsules.
 - **Industry policy packs** — fintech/healthcare presets aligned to SOC 2 / HIPAA-style frameworks.
