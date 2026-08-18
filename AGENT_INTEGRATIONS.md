@@ -14,10 +14,10 @@ Grimdall is a local runtime guard for AI agents: it intercepts tool calls, evalu
 | Claude Code | ✅ supported | `npx grimdall init --hooks` |
 | Cursor | ✅ supported | `npx grimdall init --hooks` |
 | Codex | ✅ supported | `npx grimdall init --hooks` |
-| LangChain (Python) | ✅ supported | `@guard.wrap` + adapter — see `docs/python-langchain.md` |
-| CrewAI (Python) | ✅ supported | `docs/python-crewai.md` |
-| OpenAI Agents SDK (Python) | ✅ supported | `docs/python-openai-agents.md` |
-| AutoGen (Python) | ✅ supported | `docs/python-autogen.md` |
+| LangChain (Python) | ✅ live | `@guard.wrap` + adapter — see `docs/python-langchain.md` |
+| CrewAI (Python) | ✅ live | `docs/python-crewai.md` |
+| OpenAI Agents SDK (Python) | ✅ live | `docs/python-openai-agents.md` |
+| AutoGen (Python) | ✅ live | `docs/python-autogen.md` |
 | Others | 🚧 roadmap | open an issue — we ship fast |
 
 ## Recipe A — Node / CLI agents (Claude Code, Cursor, Codex)
