@@ -25,6 +25,8 @@
   <img src="assets/terminal.png" alt="Grimdall blocking a destructive command" width="800">
 </div>
 
+![grimdall demo](assets/demo.gif)
+
 
 ## What is Grimdall?
 
