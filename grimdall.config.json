@@ -1,0 +1,49 @@
+{
+  "version": 1,
+  "SLACK_WEBHOOK_URL": "https://hooks.slack.com/services/YOUR/WEBHOOK/URL",
+  "WEBHOOK_PORT": 3001,
+  "policies": [
+    {
+      "id": "block-destructive-shell",
+      "tool": "*",
+      "action": "block",
+      "condition": "arg_contains",
+      "value": "rm -rf"
+    },
+    {
+      "id": "block-fork-bomb",
+      "tool": "*",
+      "action": "block",
+      "condition": "arg_contains",
+      "value": ":(){"
+    },
+    {
+      "id": "block-sql-destructive",
+      "tool": "*",
+      "action": "block",
+      "condition": "arg_contains",
+      "value": "DROP TABLE"
+    },
+    {
+      "id": "block-sql-truncate",
+      "tool": "*",
+      "action": "block",
+      "condition": "arg_contains",
+      "value": "TRUNCATE"
+    },
+    {
+      "id": "block-path-traversal",
+      "tool": "*",
+      "action": "block",
+      "condition": "arg_contains",
+      "value": "..\\"
+    },
+    {
+      "id": "review-network-commands",
+      "tool": "*",
+      "action": "review",
+      "condition": "arg_contains",
+      "value": "curl "
+    }
+  ]
+}

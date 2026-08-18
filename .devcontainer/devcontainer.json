@@ -1,0 +1,21 @@
+{
+  "name": "grimdall",
+  "image": "mcr.microsoft.com/devcontainers/universal:2",
+  "postCreateCommand": "npm ci && npm run build && python3 -m pip install -e ./packages/python",
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "dbaeumer.vscode-eslint",
+        "esbenp.prettier-vscode",
+        "ms-python.python"
+      ],
+      "settings": {
+        "eslint.workingDirectories": [
+          {
+            "mode": "auto"
+          }
+        ]
+      }
+    }
+  }
+}
