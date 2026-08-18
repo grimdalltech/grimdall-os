@@ -23,7 +23,9 @@ from .engine import PolicyEngine
 from .guard import BLOCKING_STATUSES, GrimdallBlockedError, Guard
 from .policy import Policy
 
-__version__ = "0.2.0"
+__version__ = "0.3.3"
+
+guard = Guard()
 
 __all__ = [
     "AuditError",
@@ -34,6 +36,7 @@ __all__ = [
     "Guard",
     "Policy",
     "PolicyEngine",
+    "guard",
     "sha256",
     "__version__",
 ]

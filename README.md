@@ -118,4 +118,4 @@ Grimdall writes a tamper-evident, hash-chained record of every tool call it eval
 
 ---
 
-Apache-2.0 License. Built by a solo founder in India who got tired of being terrified of his own code. If this saved your prod database, give it a star. 🙏
+Apache-2.0 License. Built by a solo founder who got tired of being terrified of his own code. If this saved your prod database, give it a star. 🙏
