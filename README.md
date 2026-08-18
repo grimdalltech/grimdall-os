@@ -1,51 +1,114 @@
 <div align="center">
-<img src="assets/readme-banner.png"
-alt="Grimdall — runtime security for AI agents" width="75%" />
+  <img src="assets/readme-banner.png" alt="Grimdall — runtime security for AI agents" width="75%" />
 
-![grimdall demo](assets/demo.gif)
+  <strong>Runtime security for AI agents.</strong> Stops the tool calls that would delete your repo, nuke your shell, or leak your keys, then writes a tamper-evident, SHA-256 hash-chained audit trail you can verify with one command. Runs fully local: no signup, no telemetry, no API key.
 
+  [![npm](https://img.shields.io/npm/v/grimdall)](https://www.npmjs.com/package/grimdall)
+  [![PyPI](https://img.shields.io/pypi/v/grimdall)](https://pypi.org/project/grimdall/)
+  [![license](https://img.shields.io/badge/license-Apache--2.0-blue.svg)](LICENSE)
+  [![ci](https://github.com/grimdalltech/grimdall-os/actions/workflows/ci.yml/badge.svg)](https://github.com/grimdalltech/grimdall-os/actions/workflows/ci.yml)
 
-Runtime security for AI agents. Stops the tool calls that would delete your repo, nuke your shell, or leak your keys, then writes a tamper-evident, SHA-256 hash-chained audit trail you can verify with one command. Runs fully local: no signup, no telemetry, no API key.
+  ![grimdall demo](assets/demo.gif)
+</div>
 
+## 🔥 The Problem
 
-[![ci](https://github.com/grimdalltech/grimdall-os/actions/workflows/ci.yml/badge.svg)](https://github.com/grimdalltech/grimdall-os/actions/workflows/ci.yml)
+You gave an AI coding agent terminal access so it could actually do work. But AI has senior engineer confidence and intern judgment.
 
+- Agent hallucinates a variable? It runs `DROP TABLE users;`.
+- Agent gets stuck in a loop? It force-pushes to `main`.
+- Agent reads a poisoned webpage? It executes arbitrary shell commands.
 
-## Features
+By the time you realize what happened, your app is down.
 
+## ⚡ Quickstart (Zero Friction)
 
-- **Policy enforcement** - Declarative policies (`allow`, `block`, `review`) matched against every tool call, with wildcard tool matching and argument-based conditions.
-- **Secret masking** - Deep-clones call arguments and redacts OpenAI keys, AWS access keys, GitHub tokens, and bearer tokens before anything is written to the audit log.
-- **Injection detection** - Flags shell-destructive, SQL-destructive, and path-traversal patterns with a weighted risk score. Calls above the risk threshold are blocked outright.
-- **Human-in-the-loop Slack alerts** - Blocked calls can emit a real-time Slack webhook alert so teams can review dangerous actions immediately.
-- **Tamper-evident audit trail** - Every audit entry is chained to the previous entry via SHA-256. Any modification, reordering, or deletion is detected on verification.
-- **Node.js SDK** - Wrap any function as a secured tool in one line.
-- **Python SDK** - One decorator. Any framework. Zero infra. Pure stdlib core plus optional LangChain, openai-agents, CrewAI, and AutoGen adapters.
-- **CLI** - Initialize configs, verify audit integrity, and view the audit log as a table.
+No signup. No API key. No telemetry. Works offline. $0 forever.
 
-
-## Repository layout
-
-
-```text
-grimdall/
-├── packages/
-│   ├── core/     (grimdall-core) - Policy engine, masking, detection, audit trail
-│   ├── node/     (grimdall-node) - SDK for Node.js/TypeScript applications
-│   ├── cli/      (grimdall)      - Command line tool
-│   └── python/   (grimdall)       - Python SDK: guard decorator + framework adapters
-├── examples/     - Runnable examples (node and python)
-├── docs/         - Markdown documentation
-└── README.md
-```
-
-
-## Installation
-
-
-Requires Node.js 18 or newer.
-
+**Node CLI** (protects Claude Code, Cursor, Codex):
 
 ```bash
-cd grimdall
-npm install
+npx grimdall init --hooks
+```
+
+**Python** (LangChain, CrewAI, OpenAI Agents SDK, AutoGen):
+
+```bash
+pip install grimdall
+```
+
+```python
+from grimdall import guard
+
+@guard.wrap  # That's it. Your agent is now blast-resistant.
+def my_agent_function(prompt):
+    # your agent logic here
+```
+
+## 🧪 Try It in 30 Seconds
+
+```bash
+npx grimdall demo        # watch it block rm -rf / live
+grimdall audit:verify    # prove the hash chain is intact
+grimdall doctor          # sanity-check your setup
+```
+
+## 🛠️ How It Works (The Solution)
+
+Every tool call goes through the Grimdall core loop:
+
+```
+tool call → intercept → evaluate policy → allow / block / review → hash-chained audit
+```
+
+**Default protections (out of the box):**
+
+- Blocks destructive shell calls: `rm -rf` and fork bombs.
+- Blocks destructive SQL: `DROP TABLE` and `TRUNCATE`.
+- Blocks path-traversal patterns (`..\`).
+- Forces network commands (`curl`) to human-in-the-loop review.
+- Secret masking (redacts API keys and tokens before they're written to the audit log).
+- Prompt-injection detection (shell-destructive, SQL, and path-traversal patterns) with a weighted risk score.
+
+## 🧩 Features
+
+**The unique part: cross-language audit trail.** Most tools support one language. Grimdall has a Node CLI and a Python runtime — both write to the exact same SHA-256 hash-chained, tamper-evident audit trail. Verify what your Python LangChain agent did using the Node CLI. Cryptographic proof of what was attempted, whether it was blocked, and when.
+
+- **Policy enforcement** — declarative `allow` / `block` / `review` policies with wildcard tool matching.
+- **Secret masking** — deep-clones call arguments and redacts OpenAI keys, AWS keys, GitHub tokens, bearer tokens.
+- **Injection detection** — weighted risk score for shell-destructive, SQL-destructive, and path-traversal patterns.
+- **Human-in-the-loop Slack alerts** — blocked calls can ping a Slack webhook in real time.
+- **`grimdall demo`** — watch it block `rm -rf /` live.
+- **`grimdall audit:verify`** — one command proves the chain is intact.
+
+## 🎚️ Modes: Audit vs Enforce
+
+- **`audit`** (shadow / learn-only mode): logs what *would* be blocked, blocks nothing. Run this for a week before switching.
+- **`enforce`**: real blocking + review gates.
+
+Switch with the CLI (`grimdall mode audit` → learn-only, `grimdall mode enforce` → hard enforcement). Start in `audit`, graduate to `enforce`.
+
+## ⚠️ Caution — Read This
+
+> Grimdall is a guardrail, not a force field. It reduces blast radius — it does not replace sandboxing, least-privilege credentials, or backups. Run agents with the smallest permissions possible, keep immutable backups, and treat `review` actions as real decisions, not checkbox clicks.
+
+## 📋 Compliance
+
+Grimdall writes a tamper-evident, hash-chained record of every tool call it evaluates — the kind of evidence trail auditors ask for. Today you can verify integrity with `grimdall audit:verify` and inspect the log with `grimdall audit:view`. Grimdall is evidence infrastructure, not a certified compliance product.
+
+## 🗺️ Roadmap
+
+- **Audit export** — `grimdall audit export` to JSON/CSV for your SOC team.
+- **Safer-alternative suggestions** — when a command is blocked, suggest the safe version.
+- **Spend guardrails** — hard budget caps per agent (alert → review → block on token/cost spend).
+- **Trust layer** — Ed25519 agent identity and signed intent capsules.
+- **Industry policy packs** — fintech/healthcare presets aligned to SOC 2 / HIPAA-style frameworks.
+
+## 💬 Community & Support
+
+- 🐛 [Report a bug / request a feature](https://github.com/grimdalltech/grimdall-os/issues)
+- 📧 aniket@grimdall.site
+
+---
+
+Apache-2.0 License. Built by a solo founder in India who got tired of being terrified of his own code. If this saved your prod database, give it a star. 🙏
