@@ -87,6 +87,70 @@ tool call → intercept → evaluate policy → allow / block / review → hash-
 - Secret masking (redacts API keys and tokens before they're written to the audit log).
 - Prompt-injection detection (shell-destructive, SQL, and path-traversal patterns) with a weighted risk score.
 
+## Custom Agent Harnesses
+
+**You own the loop. Grimdall owns the boundary.**
+
+Teams are ditching off-the-shelf agents and building their own coding harnesses — custom tool loops, custom context management, custom runtimes. The harness is where the agent meets the OS, and that is exactly where the security boundary belongs.
+
+Grimdall plugs into your tool execution path with one wrapper. No planner rewrite. No model change.
+
+```
+LLM planner (untrusted)
+        |  proposes tool call
+        v
+Your harness loop (context · retries · memory)
+        |  every tool call
+        v
++-------------------------------+
+|  GRIMDALL CHECKPOINT          |
+|  allow · block · review ·     |
+|  mask · audit                 |
++-------------------------------+
+        |  approved actions only
+        v
+Execution (shell · files · git · APIs)
+```
+
+### One wrapper, any language
+
+Python:
+
+```python
+from grimdall import guard
+
+@guard  # <- the only line you add
+def run_tool(name, args):
+    return execute(name, args)
+```
+
+Node:
+
+```js
+import { guard } from "grimdall";
+
+const runTool = guard(async (name, args) => {
+  return execute(name, args);
+}); // <- the only line you add
+```
+
+### Guarantees
+
+- **Fail-closed by default** — unknown tools and unparseable payloads are blocked or escalated, never silently executed.
+- **Deterministic policy engine** — O(1) allow/deny evaluation in under 2ms, no LLM in the hot path.
+- **Tamper-evident audit** — every decision committed to a SHA-256 hash chain, signed with ed25519.
+
+### Get started
+
+```bash
+pip install grimdall      # or: npx grimdall init --hooks
+grimdall doctor
+grimdall demo
+grimdall audit:verify
+```
+
+Full architecture: [Custom Harness guide](https://grimdall.site/#custom-harness) · [White paper](https://grimdall.site/white-papers) · [Research paper](https://grimdall.site/research)
+
 ## 🧩 Features
 
 **The unique part: cross-language audit trail.** Most tools support one language. Grimdall has a Node CLI and a Python runtime — both write to the exact same SHA-256 hash-chained, tamper-evident audit trail. Verify what your Python LangChain agent did using the Node CLI. Cryptographic proof of what was attempted, whether it was blocked, and when.
