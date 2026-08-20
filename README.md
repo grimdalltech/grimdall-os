@@ -56,6 +56,29 @@ def my_agent_function(prompt):
     # your agent logic here
 ```
 
+## Why This Exists
+
+AI agents are no longer just generating text. They are generating structured tool calls that interface with production databases, cloud infrastructure, and shell environments. When you grant an agent access to high-privilege tools (`run_shell_command`, `github_delete_repo`), it acts as a deputy on your behalf. 
+
+If that agent's context window is poisoned by untrusted data—a hidden payload in a GitHub issue, an email, or a web page—the LLM can be manipulated into issuing malicious, yet syntactically valid, tool calls. The orchestration framework sees a valid JSON request from an authorized agent and executes it. 
+
+This is the **AI Confused Deputy** problem. 
+
+Current mitigations try to solve this at the prompt layer using "LLM-as-a-judge" guardrails. This fails for three reasons:
+1. **Non-determinism:** Security controls cannot be probabilistic. Obfuscation bypasses classifiers.
+2. **Latency:** Secondary inference adds 600ms–1.2s per tool call, destroying agent economics.
+3. **Parameter smuggling:** Validating the tool name isn't enough. A benign `http_request` tool can carry a destructive payload.
+
+Prompt security attempts to persuade the agent to behave. **Execution security constrains what the agent can cause.**
+
+Grimdall exists to provide that execution boundary. It is a deterministic Policy Enforcement Point (PEP) that sits between your agent's reasoning loop and the host OS. It intercepts tool calls via O(1) policy checks (<2ms), isolates shell execution in networkless containers (`--network none`), and maintains tamper-proof cryptographic audit logs. 
+
+Even if an agent's reasoning is fully compromised, its ability to execute destructive actions is structurally contained.
+
+> Read the full formalization: [Mitigating the Confused Deputy Problem in LLM Agents](https://grimdall.site/research)
+
+---
+
 ## 🤖 Vibe Coder?
 
 Paste this to your agent and go:
@@ -192,6 +215,75 @@ Grimdall is evidence infrastructure, not a certified compliance product.
 
 - 🐛 [Report a bug / request a feature](https://github.com/grimdalltech/grimdall-os/issues)
 - 📧 aniket@grimdall.site
+
+---
+
+## FAQ
+
+<details>
+<summary><strong>Isn't this just another prompt guardrail?</strong></summary>
+No. Prompt guardrails try to persuade the model to behave. Grimdall enforces at the execution layer: every tool call is evaluated by a deterministic policy engine before it reaches the OS. The model can propose anything. Only approved actions execute.
+</details>
+
+<details>
+<summary><strong>What's the latency overhead?</strong></summary>
+Under 2ms for policy decisions — an O(1) lookup plus AST evaluation, with no LLM in the hot path. Sandboxed shell execution runs ~200ms with a warm pool (~1.5s cold start). For comparison, LLM-as-a-judge guardrails add 600ms–1.2s per call.
+</details>
+
+<details>
+<summary><strong>Won't it false-positive and break my flow?</strong></summary>
+Start in shadow mode: every call is evaluated, nothing is blocked, and you see exactly what would have been denied. Tune against real traffic, then flip to enforce. Shell parsing is AST-based — it evaluates command + flags + resolved paths, so <code>rm -rf ./build</code> and <code>rm -rf ~</code> are different decisions, not keyword matches.
+</details>
+
+<details>
+<summary><strong>Fail-open or fail-closed?</strong></summary>
+Fail-closed. Unparseable commands, unknown tools, and policy failures are blocked or escalated for human review. Never silently executed.
+</details>
+
+<details>
+<summary><strong>Do I need to change my agent, model, or prompts?</strong></summary>
+No. Grimdall wraps the tool execution path, not the planner. Native hooks for Claude Code, Cursor, and Codex. MCP proxy for MCP-based stacks. One decorator for custom Python or Node harnesses.
+</details>
+
+<details>
+<summary><strong>Can the agent just disable it or edit its own config?</strong></summary>
+Not by default. Writes to the agent's own config directory, hooks, and Grimdall policy files are denied or require human approval. The enforcement point is independent of the process it constrains.
+</details>
+
+<details>
+<summary><strong>Doesn't --network none break npm install and legit network calls?</strong></summary>
+Only shell execution routed into the sandbox loses network. Reads and allowlisted destinations run normally or through an egress proxy with a destination allowlist. You choose what goes in the networkless container.
+</details>
+
+<details>
+<summary><strong>Where does my code and telemetry go?</strong></summary>
+Nowhere. Local-first: policies, evaluation, and the audit trail live on your machine. The hosted platform adds team policy and approvals, but payloads stay in your environment.
+</details>
+
+<details>
+<summary><strong>How is this different from plain Docker sandboxing or AgentPaaS?</strong></summary>
+Sandboxing limits blast radius but decides nothing. Grimdall adds the decision layer — allow, block, review — plus a tamper-evident record of every decision. Furthermore, platforms that only secure the container at the egress boundary miss parameter smuggling (a benign tool carrying a destructive payload). Grimdall intercepts at the tool-call boundary via AST parsing, strictly before execution, on the harness you already run.
+</details>
+
+<details>
+<summary><strong>Is the audit log actually tamper-evident?</strong></summary>
+Every decision is signed with ed25519 and appended to a SHA-256 hash chain where each receipt commits to the previous hash. An agent that edits history breaks the chain. Export signed checkpoints to append-only storage for truncation resistance.
+</details>
+
+<details>
+<summary><strong>What does it NOT protect against?</strong></summary>
+Stateful memory poisoning (a poisoned vector retrieved in a later session), and any path that bypasses the boundary — CI jobs, background workers, or plugins not wired through the hook. If a tool call doesn't cross the PEP, it's outside coverage. It is also not a replacement for least privilege, independent backups, or a compliance program.
+</details>
+
+<details>
+<summary><strong>Does it replace my orchestrator or harness?</strong></summary>
+No. LangGraph, CrewAI, AutoGen, and Claude Code still plan and run the work. Orchestration coordinates the swarm. The harness runs the work. Grimdall controls the consequences.
+</details>
+
+<details>
+<summary><strong>What's the license and what does it cost?</strong></summary>
+The CLI and runtime are open source under Apache-2.0, free locally forever. The hosted platform (team workspaces, SSO/SAML, managed policy packs) lives behind a demo.
+</details>
 
 ---
 
