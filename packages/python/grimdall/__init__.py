@@ -18,14 +18,13 @@ Usage::
 
 from __future__ import annotations
 
-import os
-from . import identity as _identity
+from .identity import generate_keypair, load_keypair, verify_signature, fingerprint_from_public_key
 from .audit import AuditError, AuditTrail, GENESIS_HASH, sha256
 from .engine import PolicyEngine
 from .guard import BLOCKING_STATUSES, GrimdallBlockedError, Guard
 from .policy import Policy
 
-__version__ = "0.3.0"
+__version__ = "0.3.3"
 
 __all__ = [
     "AuditError",
