@@ -1,0 +1,13 @@
+[
+  {
+    "id": "destructive_shell",
+    "tool": "shell_execute",
+    "condition": "arg_contains",
+    "field": "command",
+    "keywords": [
+      "rm -rf",
+      "Remove-Item -rf"
+    ],
+    "action": "block"
+  }
+]

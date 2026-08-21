@@ -6,7 +6,7 @@ approvals, and a tamper-evident audit trail all live in your project.
 
 Usage::
 
-    from grimdall import Guard, Policy
+    from grimdall import Guard, Policy, generate_keypair, verify_signature
 
     guard = Guard()
     guard.add_policy(Policy(deny=["delete_repo"]))
@@ -18,12 +18,14 @@ Usage::
 
 from __future__ import annotations
 
+import os
+from . import identity as _identity
 from .audit import AuditError, AuditTrail, GENESIS_HASH, sha256
 from .engine import PolicyEngine
 from .guard import BLOCKING_STATUSES, GrimdallBlockedError, Guard
 from .policy import Policy
 
-__version__ = "0.2.0"
+__version__ = "0.3.0"
 
 __all__ = [
     "AuditError",
@@ -36,4 +38,8 @@ __all__ = [
     "PolicyEngine",
     "sha256",
     "__version__",
+    "generate_keypair",
+    "load_keypair",
+    "verify_signature",
+    "fingerprint_from_public_key",
 ]

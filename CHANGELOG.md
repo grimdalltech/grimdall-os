@@ -2,11 +2,11 @@
 
 All notable changes to this project are documented in this file.
 
-## [0.3.0] - 2026-08-06
+## [0.3.0] - 2026-08-21
 
 ### Added
 
-- Initial open-source release under Apache-2.0.
+- **Trust layer** — Ed25519 agent identity (`grimdall identity init`) and signed intent capsules (`grimdall intent`). Every audit entry is now signed with the agent's Ed25519 key in addition to the SHA-256 hash chain. `grimdall audit verify` checks both chain integrity and signatures. Intent capsules carry task, scope, expiry, and a cryptographic signature, enabling `requires_intent: true` policy for review-tier actions.
 - `@grimdall/cli` (`npx grimdall init`) with Node, Python, LangGraph, and Claude Code wrapper generation.
 - `grimdall-node` Node SDK with `createGrimdall()`, `guardTool()`, and sensitive-argument redaction.
 - `grimdall` Python SDK with `Grimdall`, `guard_tool()`, and sensitive-argument redaction.

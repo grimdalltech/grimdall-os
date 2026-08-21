@@ -1,6 +1,6 @@
 {
   "name": "grimdall",
-  "version": "0.2.1",
+  "version": "0.3.0",
   "private": true,
   "description": "Open-source runtime security layer for AI agents: policy enforcement, secret masking, injection detection, and a tamper-evident audit trail.",
   "license": "Apache-2.0",
